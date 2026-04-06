@@ -84,18 +84,18 @@ solobank pay https://mpp.solobank.lol/openai/v1/chat/completions \
 ┌─────────▼──────────────────▼──────────────────────────────┐
 │                   @solobank/sdk                           │
 │                                                           │
-│  Wallet · Send · Swap · Lend · Borrow · Pay              │
-│  Safeguards · Contacts · History · Session               │
+│  Wallet · Send · Swap · Lend · Borrow · Pay               │
+│  Safeguards · Contacts · History · Session                │
 └─────┬──────────┬───────────┬───────────┬──────────────────┘
       │          │           │           │
   Solana RPC   Jupiter    Kamino     MarginFi
       │        Aggregator  (klend)   (v2 SDK)
       │          │           │           │
 ┌─────▼──────────▼───────────▼───────────▼──────────────────┐
-│                     Solana Blockchain                      │
+│                     Solana Blockchain                     │
 │           ┌──────────────────────────────┐                │
 │           │  Treasury Contract (Anchor)  │                │
-│           │  save 0.1% · borrow 0.05%   │                │
+│           │  save 0.1% · borrow 0.05%    │                │
 │           │  swap 0.1% · admin controls  │                │
 │           └──────────────────────────────┘                │
 └───────────────────────────────────────────────────────────┘
@@ -104,9 +104,9 @@ solobank pay https://mpp.solobank.lol/openai/v1/chat/completions \
 │                    MPP Gateway                            │
 │              mpp.solobank.lol                             │
 │                                                           │
-│  50+ APIs: OpenAI · Anthropic · Gemini · Groq · Mistral  │
-│  Perplexity · fal.ai · Brave · ElevenLabs · Replicate    │
-│  CoinGecko · Jupiter · Helius · Birdeye · DexScreener    │
+│  50+ APIs: OpenAI · Anthropic · Gemini · Groq · Mistral   │
+│  Perplexity · fal.ai · Brave · ElevenLabs · Replicate     │
+│  CoinGecko · Jupiter · Helius · Birdeye · DexScreener     │
 │  and 35+ more...                                          │
 │                                                           │
 │  Agent pays USDC on-chain -> Gateway verifies -> Proxy    │
