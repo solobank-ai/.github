@@ -38,6 +38,98 @@ solobank init
 
 The init wizard creates a wallet, configures safeguards, and auto-installs the MCP server into Claude Desktop, Cursor, and Windsurf.
 
+## Demo
+
+<div align="center">
+
+```
+🟡 🟢 🔴
+```
+
+</div>
+
+```
+◎ Solobank — AI Bank Account on Solana
+
+  Decentrathon 5.0 · Case 2: AI + Blockchain
+
+  ▸ Step 1: Install & create wallet
+
+  $ curl -fsSL https://solobank.lol/install.sh | bash
+
+  ✓ @solobank/cli installed
+  ✓ Wallet created: Aa78c...SaNT
+  ✓ MCP server configured for Claude Desktop
+
+  ▸ Step 2: Agent checks DeFi rates (GPT-4o-mini decides)
+
+  $ solobank lend-rates USDC
+
+  Protocol     Market     APY       APR
+  kamino       main       8.21%     7.89%
+  marginfi     main       7.05%     6.81%
+
+  🤖 AI decision: "Kamino offers 1.16% higher APY with similar risk"
+     Action:     lend 100 USDC to Kamino
+     Confidence: 85%
+     Cost:       $0.00009 (GPT-4o-mini, 397 tokens)
+
+  ▸ Step 3: Agent executes on-chain
+
+  $ solobank lend 100 USDC --protocol kamino
+
+  ✓ Supplied 100 USDC to Kamino (main market)
+    APY: 8.21% · Earning ~$0.022/day
+    Signature: 5ScEUtUfzq4SdDti...
+    Explorer: https://solscan.io/tx/5ScEU...
+
+  ▸ Step 4: Agent pays for API with USDC
+
+  $ solobank pay https://mpp.solobank.lol/openai/v1/chat/completions \
+      --method POST --data '{"model":"gpt-4o","messages":[...]}'
+
+  ✓ 402 challenge: $0.01 USDC → Aa78c...SaNT
+  ✓ TX confirmed on Solana (1361ms)
+  ✓ Gateway verified (355ms via Helius)
+  ✓ OpenAI responded: "Hello! How can I help you?"
+
+  ▸ Step 5: Safeguards protect the wallet
+
+  $ solobank config set maxPerTx 50
+  ✓ maxPerTx = 50
+
+  $ solobank lock
+  🔒 Wallet locked. All transactions disabled.
+  ⚠  AI can lock, but only human can unlock via CLI.
+
+  ▸ Step 6: MCP tools for Claude / Cursor
+
+  18 tools available:
+  balance · send · pay · swap · swap_quote · lend · borrow
+  withdraw · repay · rebalance · lending_rates · lock · config
+  address · vault_status · vault_deposit · vault_analyze · vault_decide
+
+  $ solobank mcp install
+  ✓ Installed in Claude Desktop
+  ✓ Installed in Cursor
+```
+
+```
+  Results:
+  ─────────────────────────────────────
+  Settlement:       1361ms (Solana)
+  Gateway verify:    355ms (Helius)
+  AI decision:      ~200ms (GPT-4o-mini)
+  API cost:        $0.005-$0.10/call
+  AI cost:         $0.0001/decision
+  ─────────────────────────────────────
+  ✅ Mainnet USDC payments working
+  ✅ 51 API services available
+  ✅ Replay protection (409 Conflict)
+```
+
+---
+
 ## Talk to your Agent
 
 After installing, just ask your AI agent in natural language:
