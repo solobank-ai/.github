@@ -74,43 +74,43 @@ solobank pay https://mpp.solobank.lol/openai/v1/chat/completions \
 ## Architecture
 
 ```
-┌─────────────────────────────────────────────────────────────┐
-│                        AI Agent                             │
-│           (Claude, GPT, Cursor, custom agent)               │
-└──────────┬──────────────────┬───────────────────────────────┘
-           │                  │
-     MCP (stdio)         SDK / CLI
-           │                  │
-┌──────────▼──────────────────▼───────────────────────────────┐
-│                    @solobank/sdk                             │
-│                                                             │
-│  Wallet  ·  Send  ·  Swap  ·  Lend  ·  Borrow  ·  Pay     │
-│  Safeguards  ·  Contacts  ·  History  ·  Session            │
-└──────┬──────────┬───────────┬───────────┬───────────────────┘
-       │          │           │           │
-   Solana RPC   Jupiter    Kamino     MarginFi
-       │        Aggregator  (klend)   (v2 SDK)
-       │          │           │           │
-┌──────▼──────────▼───────────▼───────────▼───────────────────┐
-│                      Solana Blockchain                       │
-│            ┌─────────────────────────────┐                   │
-│            │  Treasury Contract (Anchor) │                   │
-│            │  save 0.1% · borrow 0.05%  │                   │
-│            │  swap 0.1% · admin controls│                   │
-│            └─────────────────────────────┘                   │
-└─────────────────────────────────────────────────────────────┘
+┌───────────────────────────────────────────────────────────┐
+│                       AI Agent                            │
+│          (Claude, GPT, Cursor, custom agent)              │
+└─────────┬──────────────────┬──────────────────────────────┘
+          │                  │
+    MCP (stdio)         SDK / CLI
+          │                  │
+┌─────────▼──────────────────▼──────────────────────────────┐
+│                   @solobank/sdk                           │
+│                                                           │
+│  Wallet · Send · Swap · Lend · Borrow · Pay              │
+│  Safeguards · Contacts · History · Session               │
+└─────┬──────────┬───────────┬───────────┬──────────────────┘
+      │          │           │           │
+  Solana RPC   Jupiter    Kamino     MarginFi
+      │        Aggregator  (klend)   (v2 SDK)
+      │          │           │           │
+┌─────▼──────────▼───────────▼───────────▼──────────────────┐
+│                     Solana Blockchain                      │
+│           ┌──────────────────────────────┐                │
+│           │  Treasury Contract (Anchor)  │                │
+│           │  save 0.1% · borrow 0.05%   │                │
+│           │  swap 0.1% · admin controls  │                │
+│           └──────────────────────────────┘                │
+└───────────────────────────────────────────────────────────┘
 
-┌─────────────────────────────────────────────────────────────┐
-│                    MPP Gateway                               │
-│              mpp.solobank.lol                                │
-│                                                             │
-│  50+ APIs: OpenAI · Anthropic · Gemini · Groq · Mistral    │
-│  Perplexity · fal.ai · Brave · ElevenLabs · Replicate      │
-│  CoinGecko · Jupiter · Helius · Birdeye · DexScreener      │
-│  and 35+ more...                                            │
-│                                                             │
-│  Agent pays USDC on-chain  ->  Gateway verifies  ->  Proxy │
-└─────────────────────────────────────────────────────────────┘
+┌───────────────────────────────────────────────────────────┐
+│                    MPP Gateway                            │
+│              mpp.solobank.lol                             │
+│                                                           │
+│  50+ APIs: OpenAI · Anthropic · Gemini · Groq · Mistral  │
+│  Perplexity · fal.ai · Brave · ElevenLabs · Replicate    │
+│  CoinGecko · Jupiter · Helius · Birdeye · DexScreener    │
+│  and 35+ more...                                          │
+│                                                           │
+│  Agent pays USDC on-chain -> Gateway verifies -> Proxy    │
+└───────────────────────────────────────────────────────────┘
 ```
 
 ## Repositories
