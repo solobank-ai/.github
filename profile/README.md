@@ -86,7 +86,7 @@ solobank pay https://mpp.solobank.lol/openai/v1/chat/completions \
 ```
 ┌───────────────────────────────────────────────────────────┐
 │                       AI Agent                            │
-│          (Claude, GPT, Cursor, custom agent)              │
+│          (Claude, GPT, Cursor, OpenClaw custom agent)     │
 └─────────┬──────────────────┬──────────────────────────────┘
           │                  │
     MCP (stdio)         SDK / CLI
